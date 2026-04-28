@@ -8,11 +8,11 @@ const statusItems = [
   },
   {
     label: 'Beräknad återkomst',
-    value: 'Inom kort',
+    value: '04 maj',
   },
   {
     label: 'Vid frågor',
-    value: 'Använd den ordinarie supportkanalen',
+    value: 'Skriv till Mattias Erixon eller Olle Wikström',
   },
 ]
 
