@@ -1,18 +1,20 @@
 import './App.css'
 import skolverketMark from '../assets/Skolv_CMYK 2022.png'
 
+const cfg = window.__MAINTENANCE_CONFIG__ || {}
+
 const statusItems = [
   {
     label: 'Status',
-    value: 'Planerat underhåll',
+    value: cfg.status || 'Planerat underhåll',
   },
   {
     label: 'Beräknad återkomst',
-    value: '04 maj',
+    value: cfg.returnDate || '04 maj',
   },
   {
     label: 'Vid frågor',
-    value: 'Skriv till Mattias Erixon eller Olle Wikström',
+    value: cfg.contact || 'Skriv till Mattias Erixon eller Olle Wikström',
   },
 ]
 
@@ -28,20 +30,17 @@ function App() {
             src={skolverketMark}
             alt="Skolverket"
           />
-          <p className="maintenance-kicker">Tillfälligt avbrott</p>
+          <p className="maintenance-kicker">{cfg.kicker || 'Tillfälligt avbrott'}</p>
         </div>
 
         <div className="maintenance-grid">
           <div className="maintenance-copy">
-            <h1 id="maintenance-title">Vi uppdaterar tjänsten just nu</h1>
+            <h1 id="maintenance-title">{cfg.title || 'Vi uppdaterar tjänsten just nu'}</h1>
             <p className="maintenance-intro">
-              Vi genomför planerat underhåll för att förbättra stabilitet,
-              säkerhet och tillgänglighet. Tjänsten är tillbaka så snart arbetet
-              är klart.
+              {cfg.intro || 'Vi genomför planerat underhåll för att förbättra stabilitet, säkerhet och tillgänglighet. Tjänsten är tillbaka så snart arbetet är klart.'}
             </p>
             <p className="maintenance-body">
-              Tack för din förståelse. Om du behöver hjälp under tiden, använd den
-              ordinarie supportvägen för din verksamhet.
+              {cfg.body || 'Tack för din förståelse. Om du behöver hjälp under tiden, använd den ordinarie supportvägen för din verksamhet.'}
             </p>
           </div>
 
@@ -56,7 +55,7 @@ function App() {
             </dl>
 
             <p className="maintenance-note">
-              Vi publicerar ingen ytterligare information på sidan medan arbetet pågår.
+              {cfg.note || 'Vi publicerar ingen ytterligare information på sidan medan arbetet pågår.'}
             </p>
           </aside>
         </div>
